@@ -1,1 +1,1 @@
-# SQL_solutions_case_studies
+# SQL_Case_Studies
