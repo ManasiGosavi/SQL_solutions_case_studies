@@ -13,16 +13,16 @@
 ----------------------------------------------------------------------
 
 select                             /*|*/ select top 1 product_name,
-	product_name,                  /*|*/			  price as highest_price
-	price as highest_price         /*|*/ from
-from                               /*|*/	products
-	products                       /*|*/    order by price desc
+	product_name,              /*|*/        price as highest_price
+	price as highest_price     /*|*/ from
+from                               /*|*/       products
+	products                   /*|*/  order by price desc
 where                              /*|*/
-	price = (                      /*|*/
-	select                         /*|*/
-		MAX(price)                 /*|*/
-	from                           /*|*/
-		products);                 /*|*/
+	price = (                  /*|*/
+	select                     /*|*/
+		MAX(price)         /*|*/
+	from                       /*|*/
+		products);         /*|*/
 
 ----------------------------------------------------------------------
  product_name | highest_price 
@@ -35,11 +35,11 @@ where                              /*|*/
 -- 2) Which customer has made the most orders?
 ----------------------------------------------------------------------
 
-with total_orders as (						-- make subquery "total_orders"
+with total_orders as (						
 select
-	c.first_name first_name,				-- give some nicer column names
+	c.first_name first_name,				
 	c.last_name last_name,
-	count(o.order_id) as number_of_orders	-- calculate the number of orders per customer
+	count(o.order_id) as number_of_orders	
 from
 	customers as c
 join orders as o
@@ -48,12 +48,12 @@ group by
 	customer_id
 )
 select
-	first_name,								-- select the nicely named columns
+	first_name,								
 	last_name,
 	number_of_orders
 from
-	total_orders							-- select columns from the new table "total_orders"
-where										-- only select the rows with the maximum number of orders of all customers
+	total_orders							
+where										
 	number_of_orders = (
 	select
 		max(number_of_orders)
@@ -141,15 +141,15 @@ first_name|	last_name 	|cust_id  |	First_date
 --------------------------------------------------
 John			Doe 	    1		01-05-2023
 Jane			Smith	    2		02-05-2023
-Bob				Johnson	    3		03-05-2023
+Bob			Johnson	    3		03-05-2023
 Alice			Brown	    4		07-05-2023
 Charlie			Davis	    5		08-05-2023
-Eva				Fisher	    6		09-05-2023
+Eva			Fisher	    6		09-05-2023
 George			Harris	    7		10-05-2023
-Ivy				Jones	    8		11-05-2023
+Ivy			Jones	    8		11-05-2023
 Kevin			Miller	    9		12-05-2023
 Lily			Nelson	   10		13-05-2023
-Oliver			Patterson  11	    14-05-2023
+Oliver			Patterson  11	        14-05-2023
 Quinn			Roberts	   12		15-05-2023
 Sophia			Thomas	   13		16-05-2023
 
@@ -194,8 +194,8 @@ from
 	join products p 
 	on least_bought.product_id = p.product_id
 where least_brought_prod = (
-						select min(least_brought_prod) 
-						from least_bought)
+			   select min(least_brought_prod) 
+			   from least_bought)
 group by Product_Name, least_bought.least_brought_prod
 
 
@@ -305,8 +305,8 @@ from
 	MAX_Price_prod
 where 
 	Highest_prod_range =	(
-							select MAX(Highest_prod_range
-							) from MAX_Price_prod)
+				select MAX(Highest_prod_range
+				) from MAX_Price_prod)
     
  customer_id | first_name | last_name 
 -------------+------------+-----------
