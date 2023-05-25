@@ -23,9 +23,9 @@ where                              /*|*/
 		products);         /*|*/
 
 ----------------------------------------------------------------------
- product_name | highest_price 
+ --product_name | highest_price 
 --------------+---------------
- Product M    |         70.00
+ --Product M    |         70.00
 ----------------------------------------------------------------------
 
 
@@ -60,11 +60,11 @@ where
     );
 
 ----------------------------------------------------------------------
- first_name | last_name | number_of_orders 
+ --first_name | last_name | number_of_orders 
 ------------+-----------+------------------
- Jane       | Smith     |                2
- Bob        | Johnson   |                2
- John       | Doe       |                2
+ --Jane       | Smith     |                2
+ --Bob        | Johnson   |                2
+ --John       | Doe       |                2
 ----------------------------------------------------------------------
 
 
@@ -81,16 +81,16 @@ join order_items o on p.product_id = o.product_id
 group by p.product_name,p.price                            	
     
 ----------------------------------------------------------------------
- product_id | price | total_revenue 
-------------+-------+---------------
- Product A  | 10.00 |         50.00
- Product B  | 15.00 |        135.00
- Product C  | 20.00 |        160.00
- Product D  | 25.00 |         75.00
- Product E  | 30.00 |         90.00
- Product F  | 35.00 |        210.00
- Product G  | 40.00 |        120.00
- Product H  | 45.00 |        135.00
+ --product_id | price | total_revenue 
+-------------+-------+---------------
+ --Product A  | 10.00 |         50.00
+ --Product B  | 15.00 |        135.00
+ --Product C  | 20.00 |        160.00
+ --Product D  | 25.00 |         75.00
+ --Product E  | 30.00 |         90.00
+ --Product F  | 35.00 |        210.00
+ --Product G  | 40.00 |        120.00
+ --Product H  | 45.00 |        135.00
          .      .             .
          .      .             .
 ----------------------------------------------------------------------
@@ -114,10 +114,10 @@ from Higest_revenue_bydate
 where total_revenue = (select MAX(total_revenue) from Higest_revenue_bydate)
 
 
- order_date | revenue_per_date 
+-- order_date | revenue_per_date 
 ------------+------------------
- 2023-05-16 |           210.00
- 2023-05-11 |           210.00
+ --2023-05-16 |           210.00
+ --2023-05-11 |           210.00
 
 
 ----------------------------------------------------------------------
@@ -135,21 +135,21 @@ select
  order by c.customer_id
 
 --------------------------------------------------
-first_name|	last_name 	|cust_id  |	First_date
+--first_name|	last_name 	|cust_id  |	First_date
 --------------------------------------------------
-John			Doe 	    1		01-05-2023
-Jane			Smith	    2		02-05-2023
-Bob			Johnson	    3		03-05-2023
-Alice			Brown	    4		07-05-2023
-Charlie			Davis	    5		08-05-2023
-Eva			Fisher	    6		09-05-2023
-George			Harris	    7		10-05-2023
-Ivy			Jones	    8		11-05-2023
-Kevin			Miller	    9		12-05-2023
-Lily			Nelson	   10		13-05-2023
-Oliver			Patterson  11	        14-05-2023
-Quinn			Roberts	   12		15-05-2023
-Sophia			Thomas	   13		16-05-2023
+--John			Doe 	    1		01-05-2023
+--Jane			Smith	    2		02-05-2023
+--Bob			Johnson	    3		03-05-2023
+--Alice			Brown	    4		07-05-2023
+--Charlie		Davis	    5		08-05-2023
+--Eva			Fisher	    6		09-05-2023
+--George		Harris	    7		10-05-2023
+--Ivy			Jones	    8		11-05-2023
+--Kevin			Miller	    9		12-05-2023
+--Lily			Nelson	   10		13-05-2023
+--Oliver		Patterson  11	        14-05-2023
+--Quinn			Roberts	   12		15-05-2023
+--Sophia		Thomas	   13		16-05-2023
 
 
 
@@ -164,11 +164,11 @@ Sophia			Thomas	   13		16-05-2023
  group by customer_id
 
 
- customer_id |   Dist_prod 
+ --customer_id |   Dist_prod 
 -------------+------------
-           1 |           3
-           2 |           3
-           3 |           3
+ --          1 |           3
+ --          2 |           3
+ --          3 |           3
 
 
 ----------------------------------------------------------------------
@@ -196,16 +196,16 @@ where least_brought_prod = (
 			   from least_bought)
 group by Product_Name, least_bought.least_brought_prod
 
-
+------------------------------------------
  product_name | least_brought_prod 
 ------------+--------------+--------------
- Product D    |            3
- Product E    |            3
- Product G    |            3
- Product H    |            3
- Product I    |            3
- Product K    |            3
- Product L    |            3
+ --Product D    |            3
+ --Product E    |            3
+ --Product G    |            3
+ --Product H    |            3
+ --Product I    |            3
+ --Product K    |            3
+ --Product L    |            3
 
 
 ----------------------------------------------------------------------
@@ -225,10 +225,10 @@ select
 	PERCENTILE_CONT(0.5) within group (order by total) over () as Median_order_total
 from order_total
 
-
+--------------------
  median_order_total 
 --------------------
-              112.5
+--             112.5
 
 
 ----------------------------------------------------------------------
@@ -255,25 +255,25 @@ END AS Order_Type
 from ALL_orders
 order by Order_No
 
-
- Order_No | Total_Cost | Order_Type 
+-----------------------------------------
+-- Order_No | Total_Cost | Order_Type 
 ----------+-------------+----------------
-        1 |       35.00 | Cheap
-        2 |       75.00 | Affordable
-        3 |       50.00 | Cheap
-        4 |       80.00 | Affordable
-        5 |       50.00 | Cheap
-        6 |       55.00 | Affordable
-        7 |       85.00 | Affordable
-        8 |      145.00 | Expensive
-        9 |      140.00 | Expensive
-       10 |      285.00 | Expensive
-       11 |      275.00 | Expensive
-       12 |       80.00 | Affordable
-       13 |      185.00 | Expensive
-       14 |      145.00 | Expensive
-       15 |      225.00 | Expensive
-       16 |      340.00 | Expensive
+--        1 |       35.00 | Cheap
+--        2 |       75.00 | Affordable
+--        3 |       50.00 | Cheap
+--        4 |       80.00 | Affordable
+--        5 |       50.00 | Cheap
+--        6 |       55.00 | Affordable
+--        7 |       85.00 | Affordable
+--        8 |      145.00 | Expensive
+--        9 |      140.00 | Expensive
+--       10 |      285.00 | Expensive
+--       11 |      275.00 | Expensive
+--       12 |       80.00 | Affordable
+--       13 |      185.00 | Expensive
+--       14 |      145.00 | Expensive
+--       15 |      225.00 | Expensive
+--       16 |      340.00 | Expensive
 
 
 ----------------------------------------------------------------------
@@ -303,12 +303,12 @@ from
 	MAX_Price_prod
 where 
 	Highest_prod_range =	(
-				select MAX(Highest_prod_range
-				) from MAX_Price_prod)
-    
+				select MAX(Highest_prod_range) 
+				from MAX_Price_prod)
+----------------------------------------    
  customer_id | first_name | last_name 
 -------------+------------+-----------
-          13 | Sophia     | Thomas
-           8 | Ivy        | Jones
+--          13 | Sophia     | Thomas
+--           8 | Ivy        | Jones
            
            
