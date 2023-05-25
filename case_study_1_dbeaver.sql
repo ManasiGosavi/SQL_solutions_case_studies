@@ -1,8 +1,6 @@
 ----------------------------------------------------------------------
---                    Data In Motion
---                 Free SQL Case Studies
+--                    Data In Motion        
 --            SQL Case Study 1: Tiny Shop Sales
---   https://d-i-motion.com/lessons/customer-orders-analysis/
 --                Solutions by Manasi Gosavi
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
@@ -93,8 +91,8 @@ group by p.product_name,p.price
  Product F  | 35.00 |        210.00
  Product G  | 40.00 |        120.00
  Product H  | 45.00 |        135.00
-		  .      .             .
-		  .      .             .
+         .      .             .
+         .      .             .
 ----------------------------------------------------------------------
 -- 4) Find the day with the highest revenue.
 ----------------------------------------------------------------------
